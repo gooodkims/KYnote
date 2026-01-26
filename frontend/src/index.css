@@ -21,6 +21,13 @@
   /* Slate 600 */
 }
 
+/* Global Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   display: flex;

@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { User, Lock, LogIn, X } from 'lucide-react';
 import './frmLogin.css';
 
-export default function FrmLogin() {
+export default function FrmLogin({ onLoginSuccess }) {
     const [txtID, setTxtID] = useState("");
     const [txtPassword, setTxtPassword] = useState("");
     const [errorID, setErrorID] = useState(false);
@@ -36,7 +36,8 @@ export default function FrmLogin() {
         }
 
         if (txtID === "admin" && txtPassword === "1234") {
-            alert("로그인 성공!");
+            // alert("로그인 성공!");
+            onLoginSuccess();
         } else {
             alert("아이디 또는 패스워드가 틀립니다.");
             setTxtID("");

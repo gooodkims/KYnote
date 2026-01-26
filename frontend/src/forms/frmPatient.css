@@ -1,0 +1,208 @@
+.frmPatient-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* Wider card for form */
+    max-width: 600px;
+    padding: 32px;
+    border-radius: 16px;
+
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+    color: var(--text-main);
+}
+
+.frmPatient-header {
+    text-align: left;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 16px;
+}
+
+.frmPatient-header .title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+}
+
+.frmPatient-header .subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper .icon {
+    position: absolute;
+    left: 12px;
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+.modern-input {
+    /* Inherit base styles from common or define here */
+    width: 100%;
+    padding: 10px 12px 10px 38px;
+    /* Left padding for icon */
+    border-radius: 6px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--text-main);
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s;
+    box-sizing: border-box;
+    /* Fix width overflow */
+}
+
+.modern-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(3, 105, 161, 0.2);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.modern-input.readonly {
+    background: rgba(200, 200, 200, 0.15);
+    color: #444;
+    cursor: default;
+}
+
+/* RRN Specifics */
+.rrn-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.rrn-input {
+    padding-left: 12px;
+    /* No icon */
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.separator {
+    font-weight: bold;
+    color: var(--text-muted);
+}
+
+.error-text {
+    font-size: 12px;
+    color: #ef4444;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 4px;
+}
+
+.success-text {
+    font-size: 12px;
+    color: #10b981;
+    /* Emerald 500 */
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 4px;
+}
+
+/* Address Specifics */
+.address-group {
+    display: flex;
+    gap: 8px;
+}
+
+.zonecode {
+    width: 120px;
+    text-align: center;
+}
+
+.btn-search {
+    flex: 1;
+    background-color: var(--text-muted);
+    color: white;
+    font-size: 13px;
+    padding: 0 16px;
+}
+
+.btn-search:hover {
+    background-color: var(--text-main);
+}
+
+.address-row {
+    margin-top: 8px;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    width: 500px;
+    max-width: 90vw;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.close-modal {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    background: #e5e7eb;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.close-modal:hover {
+    background: #d1d5db;
+}
+
+.form-actions {
+    margin-top: 32px;
+}
+
+.full-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+}
