@@ -18,6 +18,8 @@
     resize: both;
     /* Optional: allow user resizing if supported/needed, but flex is better */
     transition: width 0.3s ease, max-width 0.3s ease;
+    max-height: 85vh;
+    /* Force height constraint to enable internal scrolling */
 }
 
 /* Sections */
