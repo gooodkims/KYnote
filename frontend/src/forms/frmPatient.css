@@ -1,19 +1,35 @@
 .frmPatient-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    /* Change to row for split view */
     width: 100%;
-    /* Wider card for form */
-    max-width: 600px;
-    padding: 32px;
+    max-width: 900px;
+    /* Wider for 2 columns */
+    padding: 0;
     border-radius: 16px;
-
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-
     color: var(--text-main);
+    overflow: hidden;
+}
+
+/* Sections */
+.section-patient {
+    flex: 1;
+    padding: 32px;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.section-booking {
+    flex: 0.8;
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.3);
+    /* Slightly different bg */
+    display: flex;
+    flex-direction: column;
 }
 
 .frmPatient-header {
@@ -35,6 +51,7 @@
     margin: 0;
 }
 
+/* Form Styles */
 .form-grid {
     display: flex;
     flex-direction: column;
@@ -67,10 +84,8 @@
 }
 
 .modern-input {
-    /* Inherit base styles from common or define here */
     width: 100%;
     padding: 10px 12px 10px 38px;
-    /* Left padding for icon */
     border-radius: 6px;
     border: 1px solid var(--glass-border);
     background: rgba(255, 255, 255, 0.5);
@@ -79,7 +94,6 @@
     outline: none;
     transition: all 0.2s;
     box-sizing: border-box;
-    /* Fix width overflow */
 }
 
 .modern-input:focus {
@@ -94,6 +108,15 @@
     cursor: default;
 }
 
+.form-row-3 {
+    display: flex;
+    gap: 8px;
+}
+
+.form-row-3>.form-group {
+    flex: 1;
+}
+
 /* RRN Specifics */
 .rrn-wrapper {
     display: flex;
@@ -103,7 +126,6 @@
 
 .rrn-input {
     padding-left: 12px;
-    /* No icon */
     text-align: center;
     letter-spacing: 2px;
 }
@@ -116,20 +138,19 @@
 .error-text {
     font-size: 12px;
     color: #ef4444;
+    margin-top: 4px;
     display: flex;
     align-items: center;
     gap: 4px;
-    margin-top: 4px;
 }
 
 .success-text {
     font-size: 12px;
     color: #10b981;
-    /* Emerald 500 */
+    margin-top: 4px;
     display: flex;
     align-items: center;
     gap: 4px;
-    margin-top: 4px;
 }
 
 /* Address Specifics */
@@ -141,6 +162,7 @@
 .zonecode {
     width: 120px;
     text-align: center;
+    padding-left: 12px;
 }
 
 .btn-search {
@@ -149,6 +171,13 @@
     color: white;
     font-size: 13px;
     padding: 0 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
 }
 
 .btn-search:hover {
@@ -157,6 +186,167 @@
 
 .address-row {
     margin-top: 8px;
+}
+
+/* Booking Layout */
+.booking-layout {
+    display: flex;
+    flex: 1;
+    gap: 16px;
+    min-height: 300px;
+    max-height: 400px;
+}
+
+.dept-list,
+.doctor-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.list-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.list-container {
+    flex: 1;
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.4);
+    overflow-y: auto;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* Dept Item */
+.list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--text-main);
+    transition: all 0.2s;
+}
+
+.list-item .row-center {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.list-item:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.list-item.active {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Doctor Card */
+.doctor-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.doctor-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-card.active {
+    border-color: var(--primary-color);
+    background: #f0f9ff;
+    box-shadow: 0 0 0 2px var(--primary-color);
+}
+
+.doc-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #64748b;
+}
+
+.doc-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.doc-name {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.doc-dept {
+    font-size: 12px;
+    color: #64748b;
+}
+
+.empty-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+/* Summary */
+.booking-summary {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.summary-row {
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.modern-btn {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    width: 100%;
+}
+
+.btn-primary:disabled {
+    background-color: #cbd5e1;
+    cursor: not-allowed;
 }
 
 /* Modal */
@@ -191,18 +381,4 @@
     border-radius: 4px;
     cursor: pointer;
     font-weight: 600;
-}
-
-.close-modal:hover {
-    background: #d1d5db;
-}
-
-.form-actions {
-    margin-top: 32px;
-}
-
-.full-btn {
-    width: 100%;
-    padding: 14px;
-    font-size: 16px;
 }
