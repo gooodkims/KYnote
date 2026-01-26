@@ -1,10 +1,11 @@
 .frmPatient-container {
     display: flex;
     flex-direction: row;
-    /* Change to row for split view */
     width: 100%;
-    max-width: 900px;
-    /* Wider for 2 columns */
+    max-width: 1200px;
+    /* Increased max-width for better split view */
+    min-height: 600px;
+    /* Ensure enough height */
     padding: 0;
     border-radius: 16px;
     background: var(--glass-bg);
@@ -14,6 +15,9 @@
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     color: var(--text-main);
     overflow: hidden;
+    resize: both;
+    /* Optional: allow user resizing if supported/needed, but flex is better */
+    transition: width 0.3s ease, max-width 0.3s ease;
 }
 
 /* Sections */
@@ -21,13 +25,15 @@
     flex: 1;
     padding: 32px;
     border-right: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
 }
 
 .section-booking {
-    flex: 0.8;
+    flex: 1;
+    /* Equal width */
     padding: 32px;
-    background: rgba(255, 255, 255, 0.3);
-    /* Slightly different bg */
+    /* Removed distinct background to match Patient section */
     display: flex;
     flex-direction: column;
 }
@@ -193,11 +199,18 @@
     display: flex;
     flex: 1;
     gap: 16px;
-    min-height: 300px;
-    max-height: 400px;
+    min-height: 0;
+    /* Important for flex child scrolling */
+    /* Remove fixed heights to allow dynamic filling */
 }
 
-.dept-list,
+.dept-list {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 .doctor-list {
     flex: 1;
     display: flex;
