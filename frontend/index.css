@@ -1,0 +1,46 @@
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    --primary-color: #0369a1;
+    /* Sky 700 - Deep Medical Blue */
+    --primary-hover: #075985;
+    /* Sky 800 */
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+    /* Darker start for contrast */
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    /* Much lighter glass for contrast against dark text */
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --text-main: #0f172a;
+    /* Slate 900 - Dark text */
+    --text-muted: #475569;
+    /* Slate 600 */
+}
+
+body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+
+    /* Hospital Background */
+    background-image: url('./assets/bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: var(--text-main);
+}
+
+#root {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
