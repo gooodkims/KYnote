@@ -58,8 +58,8 @@ export default function FrmLogin() {
             className="frmLogin-container"
         >
             <div className="frmLogin-header">
-                <div className="frmLogin-title">Welcome Back</div>
-                <div className="frmLogin-subtitle">시스템에 로그인하세요</div>
+                <div className="frmLogin-title">환영합니다.</div>
+                <div className="frmLogin-subtitle">KYcare 로그인하세요</div>
             </div>
 
             <div className="input-group">
@@ -78,7 +78,7 @@ export default function FrmLogin() {
             </div>
 
             <div className="input-group">
-                <label className="input-label">패스워드</label>
+                <label className="input-label">암호</label>
                 <div className="input-wrapper">
                     <Lock className="input-icon" size={18} />
                     <input
