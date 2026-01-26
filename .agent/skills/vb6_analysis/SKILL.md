@@ -1,6 +1,6 @@
 ---
 name: VB6 Code Analysis
-description: A comprehensive guide and set of instructions for analyzing, understanding, and documenting Visual Basic 6.0 (VB6) source code.
+description: A comprehensive guide and set of instructions for analyzing, understanding, and documenting Visual Basic 6.0 (VB6) source code....
 ---
 
 # VB6 Code Analysis Skill
