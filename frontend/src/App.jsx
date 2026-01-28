@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import FrmLogin from './forms/frmLogin';
-import FrmPatient from './forms/frmPatient';
+import LoginPage from './pages/LoginPage';
+import PatientPage from './pages/PatientPage';
 import './App.css';
 
 function App() {
@@ -12,8 +12,8 @@ function App() {
 
   return (
     <div>
-      {currentScreen === 'login' && <FrmLogin onLoginSuccess={handleLoginSuccess} />}
-      {currentScreen === 'patient' && <FrmPatient />}
+      {currentScreen === 'login' && <LoginPage onLoginSuccess={handleLoginSuccess} />}
+      {currentScreen === 'patient' && <PatientPage />}
     </div>
   );
 }

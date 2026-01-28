@@ -1,0 +1,496 @@
+/* src/components/patient/Patient.css */
+
+.patient-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1200px;
+    min-height: 700px;
+    padding: 0;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.85);
+    /* 밝은 유리 효과 */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    color: #333;
+    overflow: hidden;
+    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+}
+
+/* Sections */
+.section-patient-registration {
+    flex: 1.1;
+    /* 왼쪽 등록 폼을 조금 더 넓게 */
+    padding: 2.5rem;
+    border-right: 1px solid rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.section-patient-booking {
+    flex: 0.9;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    background: rgba(248, 250, 252, 0.4);
+    /* 약간 다른 톤 */
+}
+
+/* Header */
+.patient-header {
+    text-align: left;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.patient-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff9a9e 0%, #fecfef 100%);
+    border-radius: 3px;
+}
+
+.patient-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1a202c;
+    margin: 0 0 0.4rem 0;
+}
+
+.patient-subtitle {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0;
+}
+
+/* Form Styles */
+.form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: row;
+    /* 가로 배치 */
+    align-items: center;
+    /* 수직 중앙 정렬 */
+    gap: 1rem;
+    position: relative;
+    width: 100%;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #64748b;
+    width: 80px;
+    /* 라벨 너비 약간 줄임 */
+    flex-shrink: 0;
+    text-align: left;
+    margin: 0;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    /* 입력창이 남은 공간 차지 */
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    color: #94a3b8;
+    pointer-events: none;
+}
+
+.modern-input {
+    width: 100%;
+    padding: 0.85rem 1rem 0.85rem 2.8rem;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    background: rgba(255, 255, 255, 0.9);
+    color: #334155;
+    font-size: 0.95rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+    font-weight: 500;
+}
+
+.modern-input:focus {
+    outline: none;
+    border-color: #ff9a9e;
+    box-shadow: 0 0 0 3px rgba(255, 154, 158, 0.15);
+    background: #fff;
+    transform: translateY(-1px);
+}
+
+.highlight-input {
+    background-color: #FFFDE7 !important;
+    /* 옅은 노란색 강조 */
+    border-color: #e6e6a8;
+}
+
+/* RRN Styling */
+.rrn-container {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.rrn-input {
+    padding-left: 1rem;
+    /* 아이콘 없으므로 패딩 조정 */
+    text-align: center;
+    letter-spacing: 0.1rem;
+    font-family: monospace;
+    /* 숫자 간격 일정하게 */
+    font-size: 1.1rem;
+    max-width: 140px;
+}
+
+.rrn-separator {
+    font-weight: 700;
+    color: #cbd5e1;
+}
+
+.calc-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.calc-row .form-group {
+    flex: 1;
+    min-width: 0;
+    /* flex 자식 넘침 방지 */
+}
+
+/* 생년월일 등 짧은 input은 라벨 조정 필요할 수 있음 */
+.calc-row .form-group label {
+    width: auto;
+    /* 자동 너비 */
+    margin-right: 0.5rem;
+    min-width: 40px;
+    /* 최소 너비 확보 */
+}
+
+.readonly-input {
+    background: #f1f5f9;
+    border-color: transparent;
+    color: #64748b;
+    cursor: default;
+    padding-left: 1rem;
+    /* 아이콘 없음 */
+}
+
+/* Address */
+/* 주소만 세로 정렬이 필요해서 별도 처리 */
+.form-group.address-container {
+    align-items: flex-start;
+    /* 라벨을 상단에 고정 */
+}
+
+.address-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    /* 입렵창 사이 간격 조금 더 벌림 */
+    flex: 1;
+}
+
+.address-group {
+    display: flex;
+    gap: 0.5rem;
+    /* 버튼 사이 간격 */
+    /* flex: 1 제거 */
+}
+
+.zonecode {
+    width: 100px;
+    text-align: center;
+}
+
+.btn-search {
+    flex: 1;
+    background: #334155;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+.btn-search:hover {
+    background: #1e293b;
+    transform: translateY(-1px);
+}
+
+.error-msg {
+    color: #ef4444;
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.success-msg {
+    color: #10b981;
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* Booking Layout */
+.booking-split {
+    display: flex;
+    flex-direction: column;
+    /* 세로로 배치 */
+    flex: 1;
+    gap: 1.5rem;
+    min-height: 0;
+}
+
+.dept-selection {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.modern-select {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    background: white;
+    color: #334155;
+    font-size: 1rem;
+    font-weight: 600;
+    appearance: none;
+    /* 기본 화살표 숨김 (원하면 커스텀) */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.modern-select:focus {
+    outline: none;
+    border-color: #ff9a9e;
+    box-shadow: 0 0 0 3px rgba(255, 154, 158, 0.15);
+}
+
+.doctor-selection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-height: 0;
+    /* 스크롤을 위해 필수 */
+}
+
+.doctor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    overflow-y: auto;
+    padding: 0.5rem;
+    /* 스크롤바 커스텀? */
+}
+
+.doc-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    background: white;
+    border: 1px solid #f1f5f9;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.doc-card:hover {
+    border-color: #e2e8f0;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+}
+
+.doc-card.selected {
+    background: #fff0f5;
+    /* 연한 핑크 배경 */
+    border-color: #fecfef;
+    box-shadow: 0 0 0 2px #fecfef;
+}
+
+.doc-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #64748b;
+    font-size: 1.1rem;
+    border: 2px solid white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.doc-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.doc-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #334155;
+    margin-bottom: 0.2rem;
+}
+
+.doc-dept {
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.empty-doc-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #94a3b8;
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    border: 2px dashed #e2e8f0;
+}
+
+.summary-box {
+    margin-top: 1.5rem;
+    padding: 1.2rem;
+    background: white;
+    border-radius: 16px;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.summary-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-label {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-bottom: 0.2rem;
+}
+
+.summary-value {
+    font-weight: 700;
+    color: #334155;
+    font-size: 1rem;
+}
+
+.primary-btn {
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    min-width: 140px;
+}
+
+.primary-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 154, 158, 0.4);
+}
+
+.primary-btn:disabled {
+    background: #e2e8f0;
+    cursor: not-allowed;
+    color: #94a3b8;
+}
+
+/* Modal */
+.postcode-modal-overlay {
+    position: fixed;
+    top: 0;
+    all: unset;
+    /* reset */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.postcode-modal {
+    background: white;
+    padding: 1rem;
+    border-radius: 16px;
+    width: 500px;
+    max-width: 90%;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.8rem;
+    background: #f1f5f9;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #475569;
+}
+
+.close-btn:hover {
+    background: #e2e8f0;
+}
