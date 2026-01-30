@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 
+    폴더 위치: src/main/resources/mapper/LoginMapper.xml
+    변환 포인트: 
+    1. VB6의 하드코딩된 인증(admin/1234)을 DB 조회 방식으로 전환
+    2. Oracle 19c 최적화 쿼리 사용
+-->
+<mapper namespace="com.kynote.mapper.LoginMapper">
+
+    <!-- 사용자 로그인 정보 조회 -->
+    <select id="findByUserId" parameterType="string" resultType="com.kynote.dto.UserDTO">
+        SELECT 
+            USER_ID    AS userId,
+            USER_PWD   AS password,
+            USER_NAME  AS userName,
+            USE_YN     AS useYn
+        FROM 
+            TB_USERS
+        WHERE 
+            USER_ID = #{userId}
+            AND USE_YN = 'Y'
+    </select>
+
+</mapper>
